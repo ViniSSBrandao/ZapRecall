@@ -40,10 +40,10 @@ export default function FlashCard(prop){
     if(!awa ){
         awa = 0
         return(
-        <Container classes={proprerties} onClick={() => {awa++; iniciouTeste()}} classe={prop.cardsClasse}>
+        <Container classes={proprerties}  classe={prop.cardsClasse}>
 
                 
-                <div>{show}<IonIcon icon="play-outline"></IonIcon></div>
+                <div>{show} <img src="./assets/img/seta_play.png" onClick={() => {awa++; iniciouTeste()}} alt="" srcset="" /></div>
                 
 
             
@@ -53,20 +53,20 @@ export default function FlashCard(prop){
 
     )}
     else if (awa===1){return(
-        <ContainerQuestion classes={proprerties} onClick={() => {awa++; iniciouTeste()}} classe={prop.cardsClasse}>
+        <ContainerQuestion classes={proprerties}  classe={prop.cardsClasse}>
 
                 
                 <div>
                 <Question>  {show} </Question>
                 <Opcoes>
-                    <Idk>
+                <Idk onClick={() => {awa++; iniciouTeste()}}>
                 Nao lembrei
                 </Idk>
 
-                <MaisOuMenos>
+                <MaisOuMenos onClick={() => {awa++; iniciouTeste()}}>
                 Quase nao lembrei
-                </MaisOuMenos>
-                <Zap>
+                </MaisOuMenos >
+                <Zap onClick={() => {awa++; iniciouTeste()}}>
                 Zap!
                 </Zap>
                 </Opcoes>
@@ -84,8 +84,8 @@ export default function FlashCard(prop){
         <ContainerQuestion classes={proprerties} onClick={() => {awa++; iniciouTeste()}} classe={prop.cardsClasse}>
 
                 
-                <div>{show} </div>
-                
+                <Answer><div>{show} </div></Answer>
+                <img src="./assets/img/seta_virar.png" alt="" srcset="" />
 
             
 
@@ -97,7 +97,7 @@ export default function FlashCard(prop){
         <Container classes={proprerties} onClick={() => {awa++; iniciouTeste()}} classe={prop.cardsClasse}>
 
                 
-                <div>{show} <Botao show={buttons} set={(buttons)=>setButtons(buttons)} /></div>
+                <div>{show} </div>
                 
 
             
@@ -112,9 +112,10 @@ const Container = styled.div`
     
     
     display  :flex ;
-    
+    justify-content: space-between;
+    align-items: center;
     div{
-        cursor: pointer;
+        cursor: default;
         width: 300px;
         display: flex;
         margin: 12px;
@@ -123,12 +124,18 @@ const Container = styled.div`
         background-color: white;
         height: 65px;
         padding-left: 15px;
-        
-        flex-direction: column;
-        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-right: 15px;
         box-sizing: border-box;
     }
-    
+    img{
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        
+    }
 `
 const ContainerQuestion = styled.div`
     
@@ -151,7 +158,16 @@ const ContainerQuestion = styled.div`
         
         flex-direction: column;
         justify-content: space-around;
+        cursor: default;
 
+        img{
+        width: 20px;
+        height: 20px;
+        position: relative;
+        bottom: -12px;
+        left: 250px;
+        cursor: pointer;
+    }
             
     
 `
@@ -160,30 +176,19 @@ const ContainerQuestion = styled.div`
 
 const Answer = styled.div`
 
+position: relative;
     
-    
-div{
-    width: 300px;
-    display: flex;
+    left:15px;
+    width:255px;
 
-   
     
-    margin: 12px;
-    margin-top: 25px;
-    border-radius: 7px;
-    background-color: white;
-    height: 65px;
-    
-    align-items: center;
-}
 `
 const Question = styled.div`
     position: relative;
     top: -20px;
     left:15px;
-    width:260px;
+    width:255px;
     word-wrap:break-word;
-    background-color:green;
   
 `
 
@@ -202,7 +207,7 @@ const Opcoes =styled.div`
     top:25px;
     left:15px;
     box-sizing: border-box;
-    text-wrap:wrap;
+    
     
     `
 
@@ -212,7 +217,7 @@ font-size: 12px;
     color:white;
     background-color: orange;
     width: 85px;
-    
+    cursor: pointer;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -221,7 +226,7 @@ font-size: 12px;
     height: 100%;
     
     box-sizing: border-box;
-    text-wrap:wrap;
+    
     margin-left:5px;
 `
 const Zap=styled.div`
@@ -236,10 +241,10 @@ font-size: 12px;
     justify-content: center;
     align-items: center;
     
-    
+    cursor: pointer;
     left:100px;
     box-sizing: border-box;
-    text-wrap:wrap;
+    
    margin-left: 5px;
 `
 const Idk=styled.div`
@@ -253,9 +258,9 @@ font-size: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    cursor: pointer;
     
     left:100px;
     
-    text-wrap:wrap;
+    
 `
