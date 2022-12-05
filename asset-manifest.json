@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/teuprimo/ZapRecall/static/css/main.073c9b0a.css",
+    "main.js": "/teuprimo/ZapRecall/static/js/main.5a8b3bf7.js",
+    "static/js/738.baed1668.chunk.js": "/teuprimo/ZapRecall/static/js/738.baed1668.chunk.js",
+    "static/js/372.9e2ac9f3.chunk.js": "/teuprimo/ZapRecall/static/js/372.9e2ac9f3.chunk.js",
+    "static/js/856.9898961b.chunk.js": "/teuprimo/ZapRecall/static/js/856.9898961b.chunk.js",
+    "static/js/851.64e74e8b.chunk.js": "/teuprimo/ZapRecall/static/js/851.64e74e8b.chunk.js",
+    "static/js/22.e106cb98.chunk.js": "/teuprimo/ZapRecall/static/js/22.e106cb98.chunk.js",
+    "static/js/272.c0d74def.chunk.js": "/teuprimo/ZapRecall/static/js/272.c0d74def.chunk.js",
+    "static/js/841.c2c54d2a.chunk.js": "/teuprimo/ZapRecall/static/js/841.c2c54d2a.chunk.js",
+    "static/js/186.b2810372.chunk.js": "/teuprimo/ZapRecall/static/js/186.b2810372.chunk.js",
+    "static/js/787.1dbc34c6.chunk.js": "/teuprimo/ZapRecall/static/js/787.1dbc34c6.chunk.js",
+    "static/media/logo.svg": "/teuprimo/ZapRecall/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/teuprimo/ZapRecall/index.html",
+    "main.073c9b0a.css.map": "/teuprimo/ZapRecall/static/css/main.073c9b0a.css.map",
+    "main.5a8b3bf7.js.map": "/teuprimo/ZapRecall/static/js/main.5a8b3bf7.js.map",
+    "738.baed1668.chunk.js.map": "/teuprimo/ZapRecall/static/js/738.baed1668.chunk.js.map",
+    "372.9e2ac9f3.chunk.js.map": "/teuprimo/ZapRecall/static/js/372.9e2ac9f3.chunk.js.map",
+    "856.9898961b.chunk.js.map": "/teuprimo/ZapRecall/static/js/856.9898961b.chunk.js.map",
+    "851.64e74e8b.chunk.js.map": "/teuprimo/ZapRecall/static/js/851.64e74e8b.chunk.js.map",
+    "22.e106cb98.chunk.js.map": "/teuprimo/ZapRecall/static/js/22.e106cb98.chunk.js.map",
+    "272.c0d74def.chunk.js.map": "/teuprimo/ZapRecall/static/js/272.c0d74def.chunk.js.map",
+    "841.c2c54d2a.chunk.js.map": "/teuprimo/ZapRecall/static/js/841.c2c54d2a.chunk.js.map",
+    "186.b2810372.chunk.js.map": "/teuprimo/ZapRecall/static/js/186.b2810372.chunk.js.map",
+    "787.1dbc34c6.chunk.js.map": "/teuprimo/ZapRecall/static/js/787.1dbc34c6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.5a8b3bf7.js"
+  ]
+}
