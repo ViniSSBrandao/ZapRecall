@@ -4,20 +4,16 @@ import Questions from "../Questions"
 import Botao from "./Botao"
 import {IonIcon} from '@ionic/react'
 
-let awa = [0,0,0,0,0,0,0,0,0]
+let awa = []
 let respostas=0
 
 export default function FlashCard(prop){
 
   const [show, setShow] = useState("Pergunta " + prop.number)
-  
-    
-
-  
-
- 
-
-  
+    if(awa.length<=prop.number){
+        awa.push(0)
+        
+    }
 
     const iniciouTeste = () => {
 
