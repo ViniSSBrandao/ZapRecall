@@ -52,7 +52,7 @@ export default function FlashCard(prop){
 
 
     )}
-    else if (awa===1){return(
+    else if (awa===2){return(
         <ContainerQuestion classes={proprerties}  classe={prop.cardsClasse}>
 
                 
@@ -80,7 +80,7 @@ export default function FlashCard(prop){
 
 
     )}
-    else if (awa===2){return(
+    else if (awa===1){return(
         <ContainerQuestion classes={proprerties} onClick={() => {awa++; iniciouTeste()}} classe={prop.cardsClasse}>
 
                 
