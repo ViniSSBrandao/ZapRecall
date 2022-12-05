@@ -10,7 +10,7 @@ let respostas=0
 
 export default function FlashCard(prop){
     console.log(prop.respostas)
-    let icon ;
+    const [icon, setIcon] =useState(<img src='./assets/img/icone_erro.png'/>) ;
     const [cor, setCor] =useState('red')
 
   const [show, setShow] = useState("Pergunta " + prop.number)
@@ -19,7 +19,7 @@ export default function FlashCard(prop){
         
     }
 
-    const coloAnswer = (input) =>{ console.log(input);
+    const coloAnswer = (input) =>{ input == 'red' ? cor=cor : input == 'green' ? setIcon(<img src='./assets/img/icone_certo.png'/>) : setIcon(<img src='./assets/img/icone_quase.png'/>);
          setCor(input) }
 
     const iniciouTeste = () => {
@@ -101,7 +101,7 @@ export default function FlashCard(prop){
         <Container respostas={prop.setType(respostas)} >
 
                 
-                <End cor={cor} icon={icon}>{show} </End>
+                <End cor={cor} icon={icon}>{show} {icon}</End>
                 
 
             
