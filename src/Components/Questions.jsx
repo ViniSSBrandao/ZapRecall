@@ -18,12 +18,12 @@ export default function Questions(prop){
     
     const [respostas,setRespostas] = useState(0)
     
-    console.log(cards.length)
+    console.log(respostas)
 
     return(
         <Container contarPerguntas={prop.perguntas(cards.length)} contarRespostas={prop.respostas(respostas)}>
 
-            {cards.map((n) => <FlashCard setType={(respostas)=>setRespostas(respostas)} number={n.id} cardsQuestion={n.question} cardsAnswer={n.answer}/>)}
+            {cards.map((n) => <FlashCard respostas={respostas} setType={(respostas)=>setRespostas(respostas)} number={n.id} cardsQuestion={n.question} cardsAnswer={n.answer}/>)}
 
            
 

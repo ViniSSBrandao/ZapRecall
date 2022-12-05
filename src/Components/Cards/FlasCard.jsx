@@ -8,7 +8,8 @@ let awa = []
 let respostas=0
 
 export default function FlashCard(prop){
-
+    console.log(prop.respostas)
+    
   const [show, setShow] = useState("Pergunta " + prop.number)
     if(awa.length<=prop.number){
         awa.push(0)
@@ -17,7 +18,7 @@ export default function FlashCard(prop){
 
     const iniciouTeste = () => {
 
-        console.log(prop.type)
+        console.log(prop.setType)
         if (show===prop.cardsQuestion){
             setShow(prop.cardsAnswer)
             
@@ -28,6 +29,7 @@ export default function FlashCard(prop){
         
         }
         else{
+            respostas++
             setShow(`Pergunta ${prop.number}`)
         }
     }
@@ -144,7 +146,7 @@ const ContainerQuestion = styled.div`
     
         
        
-        display: flex;
+       
         margin: 12px;
         margin-top: 25px;
         border-radius: 7px;
@@ -176,13 +178,13 @@ position: relative;
     
     left:15px;
     width:255px;
-
+    top: 25px;
     
 `
 const Question = styled.div`
-    position: relative;
-    top: -20px;
-    left:15px;
+    
+    
+
     width:255px;
     word-wrap:break-word;
   
@@ -199,7 +201,6 @@ const Opcoes =styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    
     
     box-sizing: border-box;
     
