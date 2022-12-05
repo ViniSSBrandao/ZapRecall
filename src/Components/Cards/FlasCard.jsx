@@ -1,7 +1,5 @@
 import { useState } from "react"
 import styled from "styled-components"
-import Questions from "../Questions"
-import Botao from "./Botao"
 import {IonIcon} from '@ionic/react'
 
 let awa = []
@@ -10,7 +8,7 @@ let respostas=0
 
 export default function FlashCard(prop){
     console.log(prop.respostas)
-    const [icon, setIcon] =useState(<img src='./assets/img/icone_erro.png'/>) ;
+    const [icon, setIcon] =useState(<img data-test='no-icon' src='./assets/img/icone_erro.png'/>) ;
     const [cor, setCor] =useState('red')
 
   const [show, setShow] = useState("Pergunta " + prop.number)
@@ -19,7 +17,7 @@ export default function FlashCard(prop){
         
     }
 
-    const coloAnswer = (input) =>{ input == 'red' ? cor=cor : input == 'green' ? setIcon(<img src='./assets/img/icone_certo.png'/>) : setIcon(<img src='./assets/img/icone_quase.png'/>);
+    const coloAnswer = (input) =>{ input == 'red' ? cor=cor : input == 'green' ? setIcon(<img data-test='zap-icon' src='./assets/img/icone_certo.png'/>) : setIcon(<img data-test='partial-icon' src='./assets/img/icone_quase.png'/>);
          setCor(input) }
 
     const iniciouTeste = () => {
@@ -42,10 +40,10 @@ export default function FlashCard(prop){
     
     if(!awa[prop.number] ){
         return(
-        <Container >
+        <Container data-identifier='flashcard'>
 
                 
-                <div>{show} <img src="./assets/img/seta_play.png" onClick={() => {awa[prop.number]++; iniciouTeste()}} alt="" srcset="" /></div>
+                <div data-test='flashcard-text'>{show} <img data-test='play-btn' src="./assets/img/seta_play.png" onClick={() => {awa[prop.number]++; iniciouTeste()}} alt="" srcset="" /></div>
                 
 
             
@@ -55,20 +53,20 @@ export default function FlashCard(prop){
 
     )}
     else if (awa[prop.number]===2){return(
-        <ContainerQuestion  >
+        <ContainerQuestion  data-identifier='flashcard'>
 
                 
                 <div>
-                <Question>  {show} </Question>
+                <Question data-identifier='flashcard-text'>  <div data-test='flashcard-text'>{show}</div> </Question>
                 <Opcoes>
-                <Idk onClick={() => {awa[prop.number]++; iniciouTeste(); coloAnswer('red')}}>
+                <Idk data-identifier='no-btn' onClick={() => {awa[prop.number]++; iniciouTeste(); coloAnswer('red')}}>
                 Nao lembrei
                 </Idk>
 
-                <MaisOuMenos onClick={() => {awa[prop.number]++; iniciouTeste(); coloAnswer('orange')}}>
+                <MaisOuMenos data-identifier='partial-btn' onClick={() => {awa[prop.number]++; iniciouTeste(); coloAnswer('orange')}}>
                 Quase nao lembrei
                 </MaisOuMenos >
-                <Zap onClick={() => {awa[prop.number]++; iniciouTeste(); coloAnswer('green')}}>
+                <Zap data-identifier='zap-btn' onClick={() => {awa[prop.number]++; iniciouTeste(); coloAnswer('green')}}>
                 Zap!
                 </Zap>
                 </Opcoes>
@@ -83,10 +81,10 @@ export default function FlashCard(prop){
 
     )}
     else if (awa[prop.number]===1){return(
-        <ContainerQuestion  >
+        <ContainerQuestion  data-identifier='flashcard'>
 
                 
-                <Answer><div>{show} </div></Answer>
+                <Answer><div data-test='flashcard-text'>{show} </div></Answer>
                 <img src="./assets/img/seta_virar.png" alt="" srcset="" onClick={() => {awa[prop.number]++; iniciouTeste()}}/>
 
             
@@ -98,7 +96,7 @@ export default function FlashCard(prop){
     else{
         console.log(cor)
         return(
-        <Container respostas={prop.setType(respostas)} >
+        <Container data-identifier='flashcard' respostas={prop.setType(respostas)} >
 
                 
                 <End cor={cor} icon={icon}>{show} {icon}</End>
@@ -114,7 +112,8 @@ export default function FlashCard(prop){
 
 const Container = styled.div`
     
-    
+    font-size: Sans-serif;
+    font-weight: 400;
     display  :flex ;
     justify-content: space-between;
     align-items: center;
@@ -267,7 +266,7 @@ font-size: 12px;
     
 `
 const End=styled.div`
-
+    
     text-decoration: line-through;
     color:${props => props.cor};
 `

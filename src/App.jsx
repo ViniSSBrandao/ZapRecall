@@ -30,6 +30,7 @@ const Ui = styled.div`
   background-color:#fb6b6b;
   width: 100%;
   height: 100%;
+  
 `
 
 export default App;

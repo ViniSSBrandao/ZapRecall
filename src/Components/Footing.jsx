@@ -3,7 +3,7 @@ import styled from "styled-components"
 export default function Footing(prop){
     console.log(prop.perguntas)
     return(
-        <Container>
+        <Container data-identifier='footer'>
             <h3>
                 {prop.respostas}/{prop.perguntas} concluidos
             </h3>
@@ -21,4 +21,7 @@ bottom: 0;
 text-justify: center;
 justify-content: center;
 background-color: white;
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@400;500&display=swap');
+font-family: recursive;
+font-weight: 400;
 `

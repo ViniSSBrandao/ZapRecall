@@ -32,6 +32,9 @@ export default function Questions(prop){
 }
 
 const Container = styled.div `
+@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@400;500&display=swap');
+font-family: Recursive;
+font-weight: 400;
 display: flex;
 justify-content: center;
 margin-top: 54px;
@@ -39,5 +42,5 @@ padding-bottom:90px;
 flex-direction: column;
 align-items: center;
 
-
+font-weight: 400;
 `
