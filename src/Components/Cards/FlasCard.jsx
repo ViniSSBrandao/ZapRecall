@@ -4,46 +4,44 @@ import Questions from "../Questions"
 import Botao from "./Botao"
 import {IonIcon} from '@ionic/react'
 
+let awa = [0,0,0,0,0,0,0,0,0]
+let respostas=0
 
-let awa = 0
 export default function FlashCard(prop){
-    
+
   const [show, setShow] = useState("Pergunta " + prop.number)
   
-    if(awa%3==0){
-        awa=0
-    }
+    
 
-  const [proprerties, setProperties] = useState('')
+  
 
-  const [buttons, setButtons] = useState('aaaaaaaaa')
+ 
 
   
 
     const iniciouTeste = () => {
 
-        console.log(awa)
-        if(awa==1){
-        setShow(prop.cardsQuestion)
-        
-        }
-        else if (awa==2){
+        console.log(prop.type)
+        if (show===prop.cardsQuestion){
             setShow(prop.cardsAnswer)
             
             
+        }
+        else if(awa[prop.number]==1){
+        setShow(prop.cardsQuestion)
+        
         }
         else{
             setShow(`Pergunta ${prop.number}`)
         }
     }
     
-    if(!awa ){
-        awa = 0
+    if(!awa[prop.number] ){
         return(
-        <Container classes={proprerties}  classe={prop.cardsClasse}>
+        <Container >
 
                 
-                <div>{show} <img src="./assets/img/seta_play.png" onClick={() => {awa++; iniciouTeste()}} alt="" srcset="" /></div>
+                <div>{show} <img src="./assets/img/seta_play.png" onClick={() => {awa[prop.number]++; iniciouTeste()}} alt="" srcset="" /></div>
                 
 
             
@@ -52,21 +50,21 @@ export default function FlashCard(prop){
 
 
     )}
-    else if (awa===2){return(
-        <ContainerQuestion classes={proprerties}  classe={prop.cardsClasse}>
+    else if (awa[prop.number]===2){return(
+        <ContainerQuestion  >
 
                 
                 <div>
                 <Question>  {show} </Question>
                 <Opcoes>
-                <Idk onClick={() => {awa++; iniciouTeste()}}>
+                <Idk onClick={() => {awa[prop.number]++; iniciouTeste()}}>
                 Nao lembrei
                 </Idk>
 
-                <MaisOuMenos onClick={() => {awa++; iniciouTeste()}}>
+                <MaisOuMenos onClick={() => {awa[prop.number]++; iniciouTeste()}}>
                 Quase nao lembrei
                 </MaisOuMenos >
-                <Zap onClick={() => {awa++; iniciouTeste()}}>
+                <Zap onClick={() => {awa[prop.number]++; iniciouTeste()}}>
                 Zap!
                 </Zap>
                 </Opcoes>
@@ -80,12 +78,12 @@ export default function FlashCard(prop){
 
 
     )}
-    else if (awa===1){return(
-        <ContainerQuestion classes={proprerties} onClick={() => {awa++; iniciouTeste()}} classe={prop.cardsClasse}>
+    else if (awa[prop.number]===1){return(
+        <ContainerQuestion  >
 
                 
                 <Answer><div>{show} </div></Answer>
-                <img src="./assets/img/seta_virar.png" alt="" srcset="" />
+                <img src="./assets/img/seta_virar.png" alt="" srcset="" onClick={() => {awa[prop.number]++; iniciouTeste()}}/>
 
             
 
@@ -93,8 +91,10 @@ export default function FlashCard(prop){
 
 
     )}
-    else{return(
-        <Container classes={proprerties} onClick={() => {awa++; iniciouTeste()}} classe={prop.cardsClasse}>
+    else{
+        
+        return(
+        <Container respostas={prop.setType(respostas)} >
 
                 
                 <div>{show} </div>
@@ -196,16 +196,15 @@ const Opcoes =styled.div`
     font-size: 12px;
     width: auto;
     color:white;
-    
+    font-size: 18px;
     width: 255px;
     height: 37px;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position:relative;
-    top:25px;
-    left:15px;
+    
+    
     box-sizing: border-box;
     
     

@@ -2,6 +2,7 @@ import FlashCard from './Cards/FlasCard'
 import styled from 'styled-components'
 import { useState } from 'react'
 
+
 const cards = [
     { id: 1,question: "O que é JSX?", answer: "Uma extensão da linguagem JavaScript" },
     { id: 2,question: "O React é __", answer: "Uma biblioteca JavaScript para construção de interfaces" },
@@ -13,14 +14,16 @@ const cards = [
     { id: 8,question: "Usamos estado (state) para __", answer: "Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" }
 ]
 
-export default function Questions(){
-    const [classe,setClasse] = useState('question')
+export default function Questions(prop){
     
+    const [respostas,setRespostas] = useState(0)
+    
+    console.log(cards.length)
 
     return(
-        <Container>
+        <Container contarPerguntas={prop.perguntas(cards.length)} contarRespostas={prop.respostas(respostas)}>
 
-            {cards.map((n) => <FlashCard type={(classe)=> setClasse(classe)} number={n.id} cardsQuestion={n.question} cardsAnswer={n.answer}/>)}
+            {cards.map((n) => <FlashCard setType={(respostas)=>setRespostas(respostas)} number={n.id} cardsQuestion={n.question} cardsAnswer={n.answer}/>)}
 
            
 

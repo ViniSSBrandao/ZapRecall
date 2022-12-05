@@ -1,10 +1,11 @@
 import styled from "styled-components"
 
-export default function Footing(){
+export default function Footing(prop){
+    console.log(prop.perguntas)
     return(
         <Container>
             <h3>
-                0/4 concluidos
+                {prop.respostas}/{prop.perguntas} concluidos
             </h3>
         </Container>
         
