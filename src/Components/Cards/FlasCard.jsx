@@ -7,14 +7,20 @@ import {IonIcon} from '@ionic/react'
 let awa = []
 let respostas=0
 
+
 export default function FlashCard(prop){
     console.log(prop.respostas)
-    
+    let icon ;
+    const [cor, setCor] =useState('red')
+
   const [show, setShow] = useState("Pergunta " + prop.number)
     if(awa.length<=prop.number){
         awa.push(0)
         
     }
+
+    const coloAnswer = (input) =>{ console.log(input);
+         setCor(input) }
 
     const iniciouTeste = () => {
 
@@ -55,14 +61,14 @@ export default function FlashCard(prop){
                 <div>
                 <Question>  {show} </Question>
                 <Opcoes>
-                <Idk onClick={() => {awa[prop.number]++; iniciouTeste()}}>
+                <Idk onClick={() => {awa[prop.number]++; iniciouTeste(); coloAnswer('red')}}>
                 Nao lembrei
                 </Idk>
 
-                <MaisOuMenos onClick={() => {awa[prop.number]++; iniciouTeste()}}>
+                <MaisOuMenos onClick={() => {awa[prop.number]++; iniciouTeste(); coloAnswer('orange')}}>
                 Quase nao lembrei
                 </MaisOuMenos >
-                <Zap onClick={() => {awa[prop.number]++; iniciouTeste()}}>
+                <Zap onClick={() => {awa[prop.number]++; iniciouTeste(); coloAnswer('green')}}>
                 Zap!
                 </Zap>
                 </Opcoes>
@@ -90,12 +96,12 @@ export default function FlashCard(prop){
 
     )}
     else{
-        
+        console.log(cor)
         return(
         <Container respostas={prop.setType(respostas)} >
 
                 
-                <div>{show} </div>
+                <End cor={cor} icon={icon}>{show} </End>
                 
 
             
@@ -259,4 +265,9 @@ font-size: 12px;
     left:100px;
     
     
+`
+const End=styled.div`
+
+    text-decoration: line-through;
+    color:${props => props.cor};
 `
